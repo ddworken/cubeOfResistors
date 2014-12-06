@@ -72,14 +72,13 @@ def iter(mesh):
             for z, dijz in enumerate(dij):
                 current[mesh[i][j][z].fixed] += (dijz.voltage * (bool(i) + bool(j) + bool(z) + (i < height - 1) + (j < width - 1) + (z < zIndex -1)))
 
-    print 2 / ((current[1] - current[2]) / 2.0)
     return (current[Fixed.A] - current[Fixed.B]) / 2.0
 
 
 def main():
     mesh = [[[Node() for x in xrange(width)] for y in xrange(height)] for z in xrange(zIndex)]
 
-    print "R = " + str(2 / iter(mesh))
+    print "R = " + str(3 / iter(mesh))
 
 if __name__ == "__main__":
     main()
